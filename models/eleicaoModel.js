@@ -16,5 +16,29 @@ async function getAllEleicoes() {
         throw error;
     }
 }
+async function getAllCandidatos() {
+    try {
+        const [rows] = await pool.query('SELECT id, nome FROM candidatos');
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+}
+async function getAllCargos() {
+    try {
+        const [rows] = await pool.query('SELECT id, cargo FROM cargos');
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+}
+async function getAllChapas() {
+    try {
+        const [rows] = await pool.query('SELECT id, nome FROM chapas');
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+}
 
-module.exports = { insertEleicao, getAllEleicoes };
+module.exports = { insertEleicao, getAllEleicoes,getAllCargos,getAllCandidatos,getAllChapas };

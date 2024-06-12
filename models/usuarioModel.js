@@ -21,9 +21,9 @@ async function insertcandidatosChapa(chapa_id,cargo_id,eleicao_id) {
       throw error;
   }
 }
-async function insertVoto(numeros_voto,candidatos_id,eleicao_id) {
+async function insertVoto(candidato_id,eleicao_id) {
   try {
-      await pool.query( 'INSERT INTO votos (numeros_voto,candidatos_id,eleicao_id) VALUES (?, ?,?)',[numeros_voto,candidatos_id,eleicao_id]);
+      await pool.query( 'INSERT INTO votos (numeros_voto,candidato_id,eleicao_id) VALUES (1,?,?)',[candidato_id,eleicao_id]);
   } catch (error) {
       throw error;
   }

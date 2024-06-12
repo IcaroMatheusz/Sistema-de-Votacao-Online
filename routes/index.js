@@ -24,8 +24,10 @@ router.get('/User', (req, res) => {
 
 router.get('/votoCadastro', async (req, res) => {
   try {
-      const eleicoes = await eleicaoModel.getAllEleicoes(); // Método para buscar todas as eleições
-      res.render('cadastro_voto', { eleicoes });
+    
+      const eleicoes = await eleicaoModel.getAllEleicoes(); 
+      const candidatos = await eleicaoModel.getAllCandidatos(); // Método para buscar todas as eleições
+      res.render('cadastro_voto', { eleicoes,candidatos });
   } catch (error) {
       res.status(500).send('Erro ao carregar eleições');
   }
@@ -47,9 +49,14 @@ router.get('/eleicaoCadastro', (req, res) => {
   });
 router.post('/eleicaoCadastro', usuarioController.addEleicao);
 
-router.get('/chapaCadastro', (req, res) => {
-    res.render('cadastro_chapa');
-  });
+router.get('/chapaCadastro', async (req, res) => {
+  try {
+      const eleicoes = await eleicaoModel.getAllEleicoes(); // Método para buscar todas as eleições
+      res.render('cadastro_chapa', { eleicoes });
+  } catch (error) {
+      res.status(500).send('Erro ao carregar eleições');
+  }
+});
 router.post('/chapaCadastro', usuarioController.addChapa);
 router.get('/candidatoCadastro', (req, res) => {
     res.render('cadastro_candidato');
@@ -61,14 +68,27 @@ router.get('/votoCadastro', (req, res) => {
   });
 router.post('/votoCadastro', usuarioController.addVoto);
 
-router.get('/cargosCadastro', (req, res) => {
-    res.render('cadastrar_cargos');
-  });
+router.get('/cargosCadastro', async (req, res) => {
+  try {
+      const eleicoes = await eleicaoModel.getAllEleicoes(); // Método para buscar todas as eleições
+      res.render('cadastrar_cargos', { eleicoes });
+  } catch (error) {
+      res.status(500).send('Erro ao carregar eleições');
+  }
+});
 router.post('/cargosCadastro', usuarioController.addCargo);
 
-router.get('/candidatoChapaCadastro', (req, res) => {
-    res.render('cadastro_candidato_chapa');
-  });
+router.get('/candidatoChapaCadastro', async (req, res) => {
+  try {
+      const eleicoes = await eleicaoModel.getAllEleicoes();
+      const chapas = await eleicaoModel.getAllChapas(); // Método para buscar todas as eleições
+      const cargos = await eleicaoModel.getAllCargos();
+      const candidatos = await eleicaoModel.getAllCandidatos();
+      res.render('cadastro_candidato_chapa', { eleicoes,chapas,cargos,candidatos });
+  } catch (error) {
+      res.status(500).send('Erro ao carregar');
+  }
+});
 router.post('/candidatoChapaCadastro', usuarioController.addcandidatosChapa )
 
 router.get('/liberacao_eleitor', (req, res) => {

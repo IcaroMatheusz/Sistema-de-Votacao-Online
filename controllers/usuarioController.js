@@ -75,10 +75,10 @@ async function addcandidatosChapa(req, res) {
     }
 }
 async function addVoto(req, res) {
-    const {numeros_voto,cadidato_id,eleicao_id} = req.body;
+    const {cadidato_id,eleicao_id} = req.body;
     try {
-        const id = await usuarioModel.insertVoto(numeros_voto,cadidato_id,eleicao_id);
-      res.redirect('/welcome')
+        const id = await usuarioModel.insertVoto(cadidato_id,eleicao_id);
+      res.redirect('/User')
     } catch (error) {
         console.error('Erro ao inserir Voto:', error);
       res.render('error', { message: 'Erro ao inserir Voto', returnLink: '/welcome' });

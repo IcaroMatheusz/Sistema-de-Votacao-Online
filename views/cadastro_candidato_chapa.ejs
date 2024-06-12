@@ -10,19 +10,35 @@
     <div class="container">
         <h1>Cadastro de Candidato em Chapa</h1>
         <form action="/candidatoChapaCadastro" method="post"  id="form-cadastro-candidato-chapa">
-            <label for="chapa">Chapa:</label>
-            <select id="chapa" name="chapa" required>
-                <!-- Opções de chapas cadastradas -->
+            <label for="chapa_id">Chapa:</label>
+            <select id="chapa_id" name="chapa_id" required>
+                <option value="" disabled selected>Selecione uma Chapa</option>
+                <% chapas.forEach(chapas => { %>
+                    <option value="<%= chapas.id %>"><%= chapas.nome %></option>
+                <% }); %>
             </select>
 
-            <label for="cargo">Cargo:</label>
-            <select id="cargo" name="cargo" required>
-                <!-- Opções de cargos cadastrados -->
+            <label for="cargo_id">Cargo:</label>
+            <select id="cargo_id" name="cargo_id" required>
+                <option value="" disabled selected>Selecione um Cargo</option>
+                <% cargos.forEach(cargos => { %>
+                    <option value="<%= cargos.id %>"><%= cargos.cargo %></option>
+                <% }); %>
             </select>
 
-            <label for="candidato">Candidato:</label>
-            <select id="candidato" name="candidato" required>
-                <!-- Opções de candidatos cadastrados -->
+            <label for="candidato_id">Candidato:</label>
+            <select id="candidato_id" name="candidato_id" required>
+                <option value="" disabled selected>Selecione um Candidato(a)</option>
+                <% candidatos.forEach(candidatos => { %>
+                    <option value="<%= candidatos.id %>"><%= candidatos.nome %></option>
+                <% }); %>
+            </select>
+            <label for="eleicao_id">Chapa:</label>
+            <select id="eleicao_id" name="eleicao_id" required>
+                <option value="" disabled selected>Selecione uma Eleição</option>
+                <% eleicoes.forEach(eleicao => { %>
+                    <option value="<%= eleicao.id %>"><%= eleicao.nome %></option>
+                <% }); %>
             </select>
 
             <button type="submit">Cadastrar</button>

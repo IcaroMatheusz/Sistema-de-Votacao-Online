@@ -10,18 +10,23 @@
     <div class="container">
         <h1>Cadastro de Voto</h1>
         <form action="/votoCadastro" method="post" id="form-cadastro-voto">
-            <label for="eleicao">Eleição:</label>
-            <select id="eleicao" name="eleicao" required>
+            <label for="candidato_id">Candidato:</label>
+            <select id="candidato_id" name="candidato_id" required>
+                <option value="" disabled selected>Selecione um Candidato(a)</option>
+                <% candidatos.forEach(candidatos => { %>
+                    <option value="<%=candidatos.id%>"><%= candidatos.nome %></option>
+                <% }); %>
+            </select>
+            
+            <label for="eleicao_id">Eleição:</label>
+            <select id="eleicao_id" name="eleicao_id" required>
                 <option value="" disabled selected>Selecione uma Eleição</option>
                 <% eleicoes.forEach(eleicao => { %>
                     <option value="<%= eleicao.id %>"><%= eleicao.nome %></option>
                 <% }); %>
             </select>
 
-            <label for="candidato">Candidato:</label>
-            <select id="candidato" name="candidato" required>
-                <!-- Opções de candidatos cadastrados -->
-            </select>
+            
 
             <button type="submit">Cadastrar Voto</button>
         </form>
