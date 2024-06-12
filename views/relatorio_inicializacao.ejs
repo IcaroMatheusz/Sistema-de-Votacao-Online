@@ -29,14 +29,60 @@
         <a href="/welcome">Voltar</a>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetch('/totalEleitores');
-                const data = await response.json();
-                document.getElementById('totalEleitores').value = data.totalEleitores;
-            } catch (error) {
-                console.error('Erro ao obter o total de eleitores:', error);
+        document.addEventListener('DOMContentLoaded', () => {
+            async function getTotalEleitores() {
+                try {
+                    const response = await fetch('/totalEleitores');
+                    const data = await response.json();
+                    return data.totalEleitores;
+                } catch (error) {
+                    console.error('Erro ao obter o total de eleitores:', error);
+                    return 0;
+                }
             }
+
+            async function updateTotalEleitores() {
+                const totalEleitores = await getTotalEleitores();
+                document.getElementById('totalEleitores').value = totalEleitores;
+            }
+
+            updateTotalEleitores();
+
+            const form = document.getElementById('form-relatorio-inicializacao');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const eleicao = document.getElementById('eleicao').value;
+                const dataHoraAbertura = document.getElementById('dataHoraAbertura').value;
+                const totalEleitores = document.getElementById('totalEleitores').value;
+
+                try {
+                    const response = await fetch('/gerarPDF', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ eleicao, dataHoraAbertura, totalEleitores })
+                    });
+
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'relatorio_inicializacao.pdf';
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                        console.log('PDF gerado com sucesso!');
+                    } else {
+                        console.error('Erro ao gerar o PDF:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Erro ao gerar o PDF:', error);
+                }
+            });
         });
     </script>
 </body>

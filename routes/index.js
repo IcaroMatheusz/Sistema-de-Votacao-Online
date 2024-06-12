@@ -5,6 +5,7 @@ const usuarioController = require('../controllers/usuarioController');
 const eleicaoModel = require('../models/eleicaoModel');
 const eleitorModel = require('../models/eleitorModel')
 const votosModel = require('../models/votosModel');
+const { generatePDF } = require('../controllers/pdfGenerator');
 
 router.get('/', (req, res) => {
     res.render('chose');
@@ -34,6 +35,22 @@ router.get('/totalVotos', async (req, res) => {
       res.status(500).send('Erro ao obter o total de votos');
   }
 });
+
+router.post('/relatorioInicializacao', async (req, res) => {
+  const { eleicao, dataHoraAbertura, totalEleitores } = req.body;
+
+  try {
+      const totalVotos = 0; // Como os votos são zero no início
+      const pdfBytes = await generatePDF(eleicao, dataHoraAbertura, totalEleitores, totalVotos);
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', 'attachment; filename="relatorio_inicializacao.pdf"');
+      res.send(pdfBytes);
+  } catch (error) {
+      res.status(500).send('Erro ao gerar o PDF');
+  }
+});
+
 
 
 
