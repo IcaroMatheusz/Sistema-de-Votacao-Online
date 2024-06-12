@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Eleição</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Eleição</h1>
+        <form action="/eleicaoCadastro" method="post"  id="form-cadastro-eleicao">
+            <label for="data">Data da Eleição:</label>
+            <input type="date" id="data" name="data" required><br>
+
+            <label for="local">Local da Eleição:</label>
+            <input type="text" id="local" name="local" required placeholder="Digite o local da eleição"><br>
+            
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Digite o nome da eleição"><br>
+
+            <label for="horaInicial">Hora Inicial da Eleição:</label>
+            <input type="time" id="horaInicial" name="horaInicial" required><br>
+
+            <label for="horaFinal">Hora Final da Eleição:</label>
+            <input type="time" id="horaFinal" name="horaFinal" required><br>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

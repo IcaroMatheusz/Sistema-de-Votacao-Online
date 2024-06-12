@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Voto</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Voto</h1>
+        <form action="/votoCadastro" method="post" id="form-cadastro-voto">
+            <label for="eleicao">Eleição:</label>
+            <select id="eleicao" name="eleicao" required>
+                <option value="" disabled selected>Selecione uma Eleição</option>
+                <% eleicoes.forEach(eleicao => { %>
+                    <option value="<%= eleicao.id %>"><%= eleicao.nome %></option>
+                <% }); %>
+            </select>
+
+            <label for="candidato">Candidato:</label>
+            <select id="candidato" name="candidato" required>
+                <!-- Opções de candidatos cadastrados -->
+            </select>
+
+            <button type="submit">Cadastrar Voto</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+
+* {margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+header>h1 {
+font-size: 30px;
+color: white;
+text-shadow: 1px 2px 20px  rgb(14, 14, 14);
+font-family: "DM Sans", sans-serif;
+font-weight: 700;
+}
+
+body {
+font-family: 'Arial', sans-serif;
+background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(58,121,118,1) 0%, rgba(157,212,177,1) 90.1% );
+color: #333;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+flex-direction: column;
+}
+
+.container {
+background-color: #ffffff;
+padding: 20px 30px;
+border-radius: 8px;
+box-shadow: 0 12px 6px rgba(0, 0, 0, 0.1);
+width: 530px;
+text-align: center;
+}
+
+.containerlogin {
+background-color: #ffffff;
+padding: 20px 30px;
+border-radius: 8px;
+box-shadow: 0 12px 6px rgba(0, 0, 0, 0.1);
+width: 430px;
+text-align: center;
+}
+
+.containerlogin>h1 {
+font-size: 34px;
+margin-top: 20px;
+}
+
+.containerlogin > a:hover {
+color: rgb(29, 59, 155);
+}
+
+form >a {
+color: #23a7a7;
+display: flex;
+justify-content: center;
+text-decoration: none;
+}
+
+form >a:hover {
+color: #0e6969;
+}
+
+h1 {
+margin-bottom: 20px;
+font-size: 24px;
+color: #2c3e50;
+}
+
+.container > a:hover {
+color: rgb(29, 59, 155);
+}
+
+nav ul {
+display: flex;
+align-items: center;
+flex-direction: column;
+list-style: none;
+margin-bottom: 20px;
+}
+
+nav ul li {
+width: 340px;
+margin-bottom: 10px;
+padding: 0.1px;
+}
+
+nav ul li a {
+display: block;
+height: 42px;
+padding: 10px 15px;
+background-color: #20a758;
+color: #fff;
+text-decoration: none;
+border-radius: 4px;
+transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+background-color: #167e41;
+}
+
+form {
+text-align: left;
+}
+
+form label {
+display: block;
+margin-bottom: 5px;
+color: #7f8c8d;
+}
+
+form input, form select, form button {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #bdc3c7;
+border-radius: 4px;
+font-size: 16px;
+}
+
+form input:focus, form select:focus {
+border-color: #3498db;
+outline: none;
+}
+
+form button {
+background-color: #2ecc71;
+color: #fff;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+form button:hover {
+background-color: #27ae60;
+}
+
+a {
+display: inline-block;
+margin-top: 15px;
+color: #3498db;
+text-decoration: none;
+transition: color 0.3s ease;
+font-family: "DM Sans", sans-serif;
+font-weight: 700;
+}
+
+input::placeholder {
+color: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
+}

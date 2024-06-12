@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cargo</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Cargo</h1>
+        <form action="/cargoCadastro" method="post" id="form-cadastro-cargo">
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required placeholder="Digite o cargo">
+
+            <label for="eleicao">Eleição:</label>
+            <select id="eleicao" name="eleicao" required>
+                <% eleicoes.forEach(eleicoes => { %>
+                    <option value="<%= eleicoes.id %>"></option>
+                <% }) %>
+                <!-- Opções de eleições cadastradas -->
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

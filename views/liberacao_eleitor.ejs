@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberação de Eleitor para Votação</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Liberação de Eleitor para Votação</h1>
+        <form action="/liberacao_eleitor" method="post" id="form-liberacao-eleitor">
+            <label for="cpf">CPF do Eleitor:</label>
+            <input type="text" id="cpf" name="cpf" required placeholder="Digite seu CPF do Eleitor">
+
+            <label for="status">Status de Liberação:</label>
+            <select id="status" name="status" required>
+                <option value="true">Liberado</option>
+                <option value="false">Não Liberado</option>
+            </select>
+
+            <label for="dataHoraInicio">Data e Hora de Início:</label>
+            <input type="datetime-local" id="dataHoraInicio" name="dataHoraInicio" required>
+
+            <label for="eleicao">Eleição:</label>
+            <input type="text" id="eleicao" name="eleicao" required>
+
+
+            <label for="usuario">Usuário Liberação:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <button type="submit">Liberar</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

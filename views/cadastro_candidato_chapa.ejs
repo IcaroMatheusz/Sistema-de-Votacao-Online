@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Candidato em Chapa</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Candidato em Chapa</h1>
+        <form action="/candidatoChapaCadastro" method="post"  id="form-cadastro-candidato-chapa">
+            <label for="chapa">Chapa:</label>
+            <select id="chapa" name="chapa" required>
+                <!-- Opções de chapas cadastradas -->
+            </select>
+
+            <label for="cargo">Cargo:</label>
+            <select id="cargo" name="cargo" required>
+                <!-- Opções de cargos cadastrados -->
+            </select>
+
+            <label for="candidato">Candidato:</label>
+            <select id="candidato" name="candidato" required>
+                <!-- Opções de candidatos cadastrados -->
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

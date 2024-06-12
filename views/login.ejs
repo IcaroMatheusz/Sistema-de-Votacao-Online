@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+
+        <link href="https://getbootstrap.com//docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <h1>Sistema de Votação Online</h1>
+        </header>
+    
+        <div class="containerlogin">
+            <h1>Login</h1>
+            <form action="/login" method="post" id="/login" >
+                <label for="username">CPF:</label>
+                <input type="text" id="username" name="username" required placeholder="Digite seu CPF">
+    
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+                <div class="buttoncontainer">
+                    <button type="submit" class="btlogin">Entrar</button>
+    
+                </div>
+                
+                <a href="/eleitorCadastro">Ainda não tem um login?</a>
+            </form>
+            
+        </div>
+    
+    </body>
+</html>

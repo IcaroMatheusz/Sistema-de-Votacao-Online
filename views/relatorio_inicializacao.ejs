@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Inicialização da Eleição</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Relatório de Inicialização da Eleição</h1>
+        <form action="/relatorioInicializacao" method="post" id="form-relatorio-inicializacao">
+            <label for="eleicao">Eleição:</label>
+            <select id="eleicao" name="eleicao" required>
+                <!-- Opções de eleições cadastradas -->
+            </select>
+
+            <label for="dataHoraAbertura">Data e Hora de Abertura:</label>
+            <input type="datetime-local" id="dataHoraAbertura" name="dataHoraAbertura" required>
+
+            <label for="totalEleitores">Total de Eleitores:</label>
+            <input type="number" id="totalEleitores" name="totalEleitores" required readonly>
+
+            <button type="submit">Gerar Relatório</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

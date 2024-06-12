@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Chapa</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Chapa</h1>
+        <form action="chapaCadastro" method="post" id="form-cadastro-chapa">
+            <label for="nomeChapa">Nome da Chapa:</label>
+            <input type="text" id="nomeChapa" name="nomeChapa" required placeholder="Digite o nome da chapa">
+
+            <label for="eleicao">Eleição:</label>
+            <select id="eleicao" name="eleicao" required>
+                <!-- Opções de eleições cadastradas -->
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Final</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Relatório Final</h1>
+        <form action="/relatorio_final" method="post" id="form-relatorio-final">
+            <label for="eleicao">Eleição:</label>
+            <select id="eleicao" name="eleicao" required>
+                <!-- Opções de eleições cadastradas -->
+            </select>
+
+            <label for="dataHoraFechamento">Data e Hora de Fechamento:</label>
+            <input type="datetime-local" id="dataHoraFechamento" name="dataHoraFechamento" required>
+
+            <label for="totalVotantes">Total de Eleitores que Votaram:</label>
+            <input type="number" id="totalVotantes" name="totalVotantes" required readonly>
+
+            <button type="submit">Gerar Relatório</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Função para obter o total de eleitores que votaram
+            function getTotalVotantes() {
+                // Simulação de uma requisição assíncrona ao servidor
+                // Substitua este trecho com a lógica de consulta ao banco de dados
+                const totalVotantes = 100; // Valor obtido do banco de dados
+                return totalVotantes;
+            }
+
+            // Atualiza o campo Total de Eleitores que Votaram com os dados do banco de dados
+            document.getElementById('totalVotantes').value = getTotalVotantes();
+            
+        });
+    </script>
+</body>
+</html>

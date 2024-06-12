@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Candidato</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Candidato</h1>
+        <form action="/candidatoCadastro" method="post" id="form-cadastro-candidato" >
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required placeholder="Digite seu CPF">
+
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required placeholder="Digite seu Endereço">
+            
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required placeholder="Digite seu Email">
+
+            <label for="senha_votacao">Senha:</label>
+            <input type="password" id="senha_votacao" name="senha_votacao" required placeholder="Digite sua Senha">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>
