@@ -5,7 +5,7 @@ const usuarioController = require('../controllers/usuarioController');
 const eleicaoModel = require('../models/eleicaoModel');
 
 router.get('/', (req, res) => {
-    res.render('login');
+    res.render('chose');
 });
 // Rota GET para exibir a página de login
 router.get('/login', (req, res) => {
@@ -18,6 +18,9 @@ router.get('/login', (req, res) => {
 
 router.post('/login', usuarioController.login);
 
+router.get('/User', (req, res) => {
+  res.render('welcomeUser');
+});
 
 router.get('/votoCadastro', async (req, res) => {
   try {

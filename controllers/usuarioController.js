@@ -14,7 +14,7 @@ async function login(req, res) {
         
         if (user) {
             // Usuário autenticado, redirecionar para a página de boas-vindas
-            res.redirect('/welcome?username=' + user.nome + '&tipo=' + user.tipo);
+            res.redirect('/User');
         } else {
             // Credenciais inválidas, redirecionar de volta para a página de login
             res.redirect('/login');
