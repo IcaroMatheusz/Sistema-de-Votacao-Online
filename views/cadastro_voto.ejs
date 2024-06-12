@@ -13,11 +13,11 @@
             <label for="candidato_id">Candidato:</label>
             <select id="candidato_id" name="candidato_id" required>
                 <option value="" disabled selected>Selecione um Candidato(a)</option>
-                <% candidatos.forEach(candidatos => { %>
-                    <option value="<%=candidatos.id%>"><%= candidatos.nome %></option>
+                <% candidatos.forEach(candidato => { %>
+                    <option value="<%=candidato.id%>"><%= candidato.nome %></option>
                 <% }); %>
             </select>
-            
+
             <label for="eleicao_id">Eleição:</label>
             <select id="eleicao_id" name="eleicao_id" required>
                 <option value="" disabled selected>Selecione uma Eleição</option>
