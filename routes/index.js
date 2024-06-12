@@ -4,6 +4,7 @@ const router = express.Router();
 const usuarioController = require('../controllers/usuarioController');
 const eleicaoModel = require('../models/eleicaoModel');
 const eleitorModel = require('../models/eleitorModel')
+const votosModel = require('../models/votosModel');
 
 router.get('/', (req, res) => {
     res.render('chose');
@@ -22,6 +23,15 @@ router.get('/totalEleitores', async (req, res) => {
       res.json({ totalEleitores });
   } catch (error) {
       res.status(500).send('Erro ao obter o total de eleitores');
+  }
+});
+
+router.get('/totalVotos', async (req, res) => {
+  try {
+      const totalVotos = await votosModel.getTotalVotos(); // Use a função do modelo de votos
+      res.json({ totalVotos });
+  } catch (error) {
+      res.status(500).send('Erro ao obter o total de votos');
   }
 });
 
