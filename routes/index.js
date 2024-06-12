@@ -94,11 +94,21 @@ router.post('/candidatoChapaCadastro', usuarioController.addcandidatosChapa )
 router.get('/liberacao_eleitor', (req, res) => {
     res.render('liberacao_eleitor');
   });
-router.get('/relatorioInicializacao', (req, res) => {
-    res.render('relatorio_inicializacao');
+router.get('/relatorioInicializacao', async (req, res) => {
+  try {
+  const eleicoes = await eleicaoModel.getAllEleicoes();
+  res.render('relatorio_inicializacao', {eleicoes });
+} catch (error) {
+  res.status(500).send('Erro ao carregar');
+}
   });
-router.get('/relatorio_final', (req, res) => {
-    res.render('relatorio_final');
+router.get('/relatorio_final', async (req, res) => {
+  try {
+    const eleicoes = await eleicaoModel.getAllEleicoes();
+    res.render('relatorio_final', {eleicoes});
+  } catch (error) {
+    res.status(500).send('Erro ao carregar');
+  }
   });
 
 

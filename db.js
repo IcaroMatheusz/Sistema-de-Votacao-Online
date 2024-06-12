@@ -11,7 +11,7 @@ const pool = mysql.createPool({
   password: 'admin', // senha do usuario do mysql
 
 
-  database: 'teste',  // nome do banco de dados 
+  database: 'projetofinal',  // nome do banco de dados 
 
 
   port: 3306,

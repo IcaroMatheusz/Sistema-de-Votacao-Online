@@ -10,9 +10,12 @@
     <div class="container">
         <h1>Relatório Final</h1>
         <form action="/relatorio_final" method="post" id="form-relatorio-final">
-            <label for="eleicao">Eleição:</label>
-            <select id="eleicao" name="eleicao" required>
-                <!-- Opções de eleições cadastradas -->
+            <label for="eleicao_id">Eleição:</label>
+            <select id="eleicao_id" name="eleicao_id" required>
+                <option value="" disabled selected>Selecione uma Eleição</option>
+                <% eleicoes.forEach(eleicao => { %>
+                    <option value="<%= eleicao.id %>"><%= eleicao.nome %></option>
+                <% }); %>
             </select>
 
             <label for="dataHoraFechamento">Data e Hora de Fechamento:</label>
