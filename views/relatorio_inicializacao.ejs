@@ -28,5 +28,16 @@
         </form>
         <a href="/welcome">Voltar</a>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('/totalEleitores');
+                const data = await response.json();
+                document.getElementById('totalEleitores').value = data.totalEleitores;
+            } catch (error) {
+                console.error('Erro ao obter o total de eleitores:', error);
+            }
+        });
+    </script>
 </body>
 </html>

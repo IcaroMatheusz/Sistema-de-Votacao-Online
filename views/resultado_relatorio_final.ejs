@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Inicialização da Eleição</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Relatório de Inicialização da Eleição</h1>
+        <h2>Informações da Eleição</h2>
+        <p><strong>Eleição:</strong> <%= eleicao %></p>
+        <p><strong>Data e Hora de Abertura:</strong> <%= dataHoraAbertura %></p>
+        <p><strong>Total de Eleitores:</strong> <%= totalEleitores %></p>
+
+        <h2>Informações do Relatório</h2>
+        <p><strong>Total de Votos:</strong> <%= totalVotos %></p>
+        <!-- Se houver mais informações do relatório, adicione-as aqui -->
+
+        <a href="/welcome">Voltar</a>
+    </div>
+</body>
+</html>

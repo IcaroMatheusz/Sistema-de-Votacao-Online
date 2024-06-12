@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const usuarioController = require('../controllers/usuarioController');
 const eleicaoModel = require('../models/eleicaoModel');
+const eleitorModel = require('../models/eleitorModel')
 
 router.get('/', (req, res) => {
     res.render('chose');
@@ -14,6 +15,16 @@ router.get('/login', (req, res) => {
 
 
 // Rota POST para processar o formulário de login
+
+router.get('/totalEleitores', async (req, res) => {
+  try {
+      const totalEleitores = await eleitorModel.getTotalEleitores();
+      res.json({ totalEleitores });
+  } catch (error) {
+      res.status(500).send('Erro ao obter o total de eleitores');
+  }
+});
+
 
 
 router.post('/login', usuarioController.login);
@@ -36,6 +47,19 @@ router.get('/votoCadastro', async (req, res) => {
 
 
 router.post('/votoCadastro', usuarioController.addVoto);
+
+// Adicione esta rota abaixo das outras rotas POST existentes
+router.post('/relatorioInicializacao', (req, res) => {
+  const { eleicao, dataHoraAbertura, totalEleitores } = req.body;
+  
+  // Aqui você pode processar os dados do formulário conforme necessário
+  // No seu caso, parece que a quantidade de votos é sempre zero
+  
+  const totalVotos = 0; // Quantidade de votos é zero
+  
+  res.render('relatorio_inicializacao_pagina', { eleicao, dataHoraAbertura, totalEleitores, totalVotos });
+});
+
 
 
 router.get('/welcome', usuarioController.welcome);
